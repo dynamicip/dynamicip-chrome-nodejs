@@ -1,0 +1,15 @@
+{
+  "name": "dynamicip-chrome-nodejs",
+  "description": "Web scraping example using Chrome and DynamicIP (to scrape JS-based websites from random IPs).",
+  "version": "0.0.1",
+  "scripts": {
+    "install":      "npm run buildBase",
+    "buildBase":    "docker build -t dynamicip-chrome-nodejs-base -f Dockerfile.base .",
+    "buildProgram": "docker build -t dynamicip-chrome-nodejs .",
+    "start":        "npm run buildProgram && npm run program",
+    "program":      "docker run -v /dev/shm:/dev/shm dynamicip-chrome-nodejs"
+  },
+  "dependencies": {
+    "selenium-webdriver": "3.6.0"
+  }
+}
